@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MFC — Milkshakes, Café & Glaces</title>
+  <meta name="description" content="MFC — Milkshakes, café et glaces. Découvrez notre menu." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER / NAV ===================== -->
+  <header class="site-header" id="header">
+    <div class="nav-inner">
+      <a href="#accueil" class="logo">
+        <img src="assets/img/logo.png" alt="MFC" class="logo-img" />
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#accueil">Accueil</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================== HERO (VIDEO BACKGROUND) ===================== -->
+  <section class="hero" id="accueil">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="assets/img/hero-poster.jpg"
+    >
+      <source src="assets/video/hero-bg.webm" type="video/webm" />
+      <source src="assets/video/hero-bg.mp4" type="video/mp4" />
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Bienvenue chez</p>
+      <img src="assets/img/logo.png" alt="MFC" class="hero-logo" />
+      <p class="hero-subtitle">Milkshakes gourmands · Café d'exception · Glaces artisanales</p>
+      <a href="#menu" class="btn btn-primary">Découvrir le menu</a>
+    </div>
+
+    <a href="#menu" class="scroll-indicator" aria-label="Défiler vers le menu">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===================== MENU ===================== -->
+  <section class="menu" id="menu">
+    <div class="section-inner">
+      <p class="section-eyebrow">Notre carte</p>
+      <h2 class="section-title">Le Menu</h2>
+
+      <!-- ============ VITRINE ANIMÉE — MILKSHAKES SIGNATURE ============
+           Une seule carte visible à la fois, défilement automatique en boucle
+           (glissement + fondu), fond coloré qui change selon le produit.
+           Pour ajouter/retirer un produit : copie/colle un bloc .showcase-card
+           dans #showcaseStage ci-dessous (image + nom + prix). -->
+      <div class="showcase" id="showcaseWrapper">
+        <p class="showcase-title">Nos milkshakes signature</p>
+
+        <div class="showcase-stage" id="showcaseStage">
+          <div class="showcase-card" style="--card-bg:#f2e8da;">
+            <img src="assets/img/milkshakes/vanille.jpg" alt="Milkshake Vanille" loading="lazy" />
+            <div class="showcase-info">
+              <span class="showcase-name">Milkshake Vanille</span>
+              <span class="showcase-price">32 MAD</span>
+            </div>
+          </div>
+
+          <div class="showcase-card" style="--card-bg:#3b2318;">
+            <img src="assets/img/milkshakes/oreo.jpg" alt="Milkshake Oreo" loading="lazy" />
+            <div class="showcase-info">
+              <span class="showcase-name">Milkshake Oreo</span>
+              <span class="showcase-price">38 MAD</span>
+            </div>
+          </div>
+
+          <div class="showcase-card" style="--card-bg:#f6d9de;">
+            <img src="assets/img/milkshakes/fraise.jpg" alt="Milkshake Fraise" loading="lazy" />
+            <div class="showcase-info">
+              <span class="showcase-name">Milkshake Fraise</span>
+              <span class="showcase-price">35 MAD</span>
+            </div>
+          </div>
+
+          <button class="showcase-arrow showcase-arrow-left" id="showcasePrev" aria-label="Précédent">‹</button>
+          <button class="showcase-arrow showcase-arrow-right" id="showcaseNext" aria-label="Suivant">›</button>
+        </div>
+
+        <div class="showcase-dots" id="showcaseDots"></div>
+      </div>
+
+      <!-- Filtres de catégorie -->
+      <div class="menu-tabs" id="menuTabs">
+        <button class="tab-btn active" data-category="milkshakes">Milkshakes</button>
+        <button class="tab-btn" data-category="cafes">Cafés</button>
+        <button class="tab-btn" data-category="glaces">Glaces</button>
+      </div>
+
+      <!-- Les cartes produits sont injectées ici en JS depuis js/script.js (tableau menuData) -->
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT / STRIP ===================== -->
+  <section class="strip">
+    <div class="strip-inner">
+      <div class="strip-item">
+        <span class="strip-icon">🥤</span>
+        <p>Milkshakes faits maison</p>
+      </div>
+      <div class="strip-item">
+        <span class="strip-icon">☕</span>
+        <p>Café torréfié avec soin</p>
+      </div>
+      <div class="strip-item">
+        <span class="strip-icon">🍨</span>
+        <p>Glaces artisanales</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT / FOOTER ===================== -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="MFC" class="footer-logo-img" />
+        <p class="footer-tagline">Milkshakes, Café &amp; Glaces</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Nous trouver</h3>
+        <!-- TODO Aya : remplace par ta vraie adresse -->
+        <p>Adresse à compléter, Agadir</p>
+        <!-- TODO Aya : remplace par ton vrai numéro -->
+        <p><a href="tel:+212000000000">+212 0 00 00 00 00</a></p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Horaires</h3>
+        <!-- TODO Aya : remplace par tes vrais horaires -->
+        <p>Tous les jours — 09:00 à 23:00</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Suivez-nous</h3>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="footer-bottom">© <span id="year"></span> MFC — Tous droits réservés</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
